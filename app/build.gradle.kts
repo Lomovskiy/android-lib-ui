@@ -1,4 +1,4 @@
-import com.lomovskiy.android.lib.camera.buildsrc.Config
+import com.lomovskiy.android.lib.ui.buildsrc.Config
 
 plugins {
     id("com.android.application")
@@ -8,11 +8,11 @@ plugins {
 android {
 
     defaultConfig {
-        applicationId("com.lomovskiy.android.lib.camera.sample")
-        minSdkVersion(Config.Versions.Android.min)
-        targetSdkVersion(Config.Versions.Android.target)
-        compileSdkVersion(Config.Versions.Android.compile)
-        buildToolsVersion(Config.Versions.buildTools)
+        applicationId("com.lomovskiy.android.lib.ui.sample")
+        minSdkVersion(com.lomovskiy.android.lib.ui.buildsrc.Config.Versions.Android.min)
+        targetSdkVersion(com.lomovskiy.android.lib.ui.buildsrc.Config.Versions.Android.target)
+        compileSdkVersion(com.lomovskiy.android.lib.ui.buildsrc.Config.Versions.Android.compile)
+        buildToolsVersion(com.lomovskiy.android.lib.ui.buildsrc.Config.Versions.buildTools)
         versionCode(1)
         versionName("1.0")
 
@@ -36,8 +36,8 @@ android {
 
 dependencies {
 
-    implementation(Config.Libs.kotlinStd)
-    implementation(Config.Libs.mdc)
-    implementation(project(Config.Modules.lib))
+    implementation(com.lomovskiy.android.lib.ui.buildsrc.Config.Libs.kotlinStd)
+    implementation(com.lomovskiy.android.lib.ui.buildsrc.Config.Libs.mdc)
+    implementation(project(com.lomovskiy.android.lib.ui.buildsrc.Config.Modules.lib))
 
 }

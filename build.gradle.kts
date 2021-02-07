@@ -4,8 +4,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath(com.lomovskiy.android.lib.camera.buildsrc.Config.GradlePlugins.kotlin)
-        classpath(com.lomovskiy.android.lib.camera.buildsrc.Config.GradlePlugins.android)
+        classpath(com.lomovskiy.android.lib.ui.buildsrc.Config.GradlePlugins.kotlin)
+        classpath(com.lomovskiy.android.lib.ui.buildsrc.Config.GradlePlugins.android)
     }
 }
 

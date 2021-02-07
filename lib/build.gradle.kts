@@ -1,8 +1,9 @@
-import com.lomovskiy.android.lib.camera.buildsrc.Config
+import com.lomovskiy.android.lib.ui.buildsrc.Config
 
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-android-extensions")
 }
 
 android {
@@ -14,7 +15,6 @@ android {
         buildToolsVersion(Config.Versions.buildTools)
         versionCode(1)
         versionName("1.0")
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -36,5 +36,8 @@ android {
 dependencies {
 
     implementation(Config.Libs.kotlinStd)
+    api(Config.Libs.mdc)
+    api(Config.Libs.threeTenAbp)
+    api(Config.Libs.picasso)
 
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dialog_show_image_content_description">Фотография</string>
+
+    <string name="dialog_progress_message">Пожалуйста, подождите…</string>
+
+</resources>
