@@ -1,0 +1,23 @@
+import com.lomovskiy.android.lib.ui.buildsrc.Config
+
+apply plugin: 'com.jfrog.bintray'
+
+version = Config.libraryVersion // Library version
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintrayUser")
+    key = properties.getProperty("bintrayApiKey")
+    configurations = ['archives']
+    pkg {
+        repo = Config.bintrayRepo
+        name = Config.bintrayName
+        licenses = Config.allLicenses
+        vcsUrl = Config.gitUrl
+        publish = true
+    }
+}
+
+bintrayUpload.dependsOn install

@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-android-extensions")
+    id("maven-publish")
 }
 
 android {
@@ -31,6 +32,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+}
+
+apply {
+    from("maven.gradle")
+    from("bintray.gradle")
 }
 
 dependencies {
@@ -40,4 +47,24 @@ dependencies {
     api(Config.Libs.threeTenAbp)
     api(Config.Libs.picasso)
 
+}
+
+val sourcesJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("sources")
+    from(android.sourceSets.getByName("main").java.srcDirs)
+}
+
+artifacts {
+    archives(sourcesJar)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("ui") {
+            groupId = Config.publishedGroupId
+            artifactId = Config.artifact
+            version = Config.libraryVersion
+            artifact(sourcesJar)
+        }
+    }
 }
