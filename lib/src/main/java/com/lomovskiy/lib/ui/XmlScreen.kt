@@ -1,4 +1,4 @@
-package com.lomovskiy.android.lib.ui
+package com.lomovskiy.lib.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

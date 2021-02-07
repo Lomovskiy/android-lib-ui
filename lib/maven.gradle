@@ -1,4 +1,4 @@
-import com.lomovskiy.android.lib.ui.buildsrc.Config
+import com.lomovskiy.lib.ui.buildsrc.Config
 
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'maven-publish'

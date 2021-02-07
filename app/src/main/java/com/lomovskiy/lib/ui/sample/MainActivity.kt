@@ -1,12 +1,11 @@
-package com.lomovskiy.android.lib.ui.sample
+package com.lomovskiy.lib.ui.sample
 
 import android.os.Bundle
 import android.text.InputType
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.lomovskiy.android.lib.ui.dialog.DialogInputText
-import com.lomovskiy.android.lib.ui.dialog.DialogProgress
-import com.lomovskiy.android.lib.ui.showDialog
+import com.lomovskiy.lib.ui.dialog.DialogInputText
+import com.lomovskiy.lib.ui.showDialog
 
 class MainActivity : AppCompatActivity(), DialogInputText.EventsTarget {
 
@@ -21,8 +20,8 @@ class MainActivity : AppCompatActivity(), DialogInputText.EventsTarget {
                     DialogInputText.TAG,
                     DialogInputText.newInstance(
                             DialogInputText.RenderModel(
-                                    R.string.app_name,
-                                    R.string.app_name,
+                                R.string.app_name,
+                                R.string.app_name,
                                     "text",
                                     android.R.string.cancel,
                                     500,

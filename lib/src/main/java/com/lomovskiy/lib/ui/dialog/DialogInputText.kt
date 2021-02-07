@@ -1,4 +1,4 @@
-package com.lomovskiy.android.lib.ui.dialog
+package com.lomovskiy.lib.ui.dialog
 
 import android.app.Dialog
 import android.content.DialogInterface
@@ -12,9 +12,9 @@ import androidx.annotation.StyleRes
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.textfield.TextInputLayout
-import com.lomovskiy.android.lib.ui.*
-import com.lomovskiy.android.lib.ui.RES_UNDEFINED
-import kotlinx.android.parcel.Parcelize
+import com.lomovskiy.lib.ui.*
+import com.lomovskiy.lib.ui.EXTRA_RENDER_MODEL
+import kotlinx.parcelize.Parcelize
 
 class DialogInputText : DialogFragment(), DialogInterface.OnClickListener {
 
@@ -105,14 +105,14 @@ class DialogInputText : DialogFragment(), DialogInterface.OnClickListener {
 
     @Parcelize
     class RenderModel @JvmOverloads constructor(
-            val title: Int,
-            val hint: Int = RES_UNDEFINED,
-            val text: String? = null,
-            val positiveButtonLabel: Int = RES_UNDEFINED,
-            val maxLength: Int = RES_UNDEFINED,
-            val maxLines: Int = RES_UNDEFINED,
-            val inputType: Int = RES_UNDEFINED,
-            @StyleRes val style: Int = RES_UNDEFINED
+        val title: Int,
+        val hint: Int = RES_UNDEFINED,
+        val text: String? = null,
+        val positiveButtonLabel: Int = RES_UNDEFINED,
+        val maxLength: Int = RES_UNDEFINED,
+        val maxLines: Int = RES_UNDEFINED,
+        val inputType: Int = RES_UNDEFINED,
+        @StyleRes val style: Int = RES_UNDEFINED
     ) : Parcelable
 
 }

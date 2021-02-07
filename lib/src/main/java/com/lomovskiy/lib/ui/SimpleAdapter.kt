@@ -1,4 +1,4 @@
-package com.lomovskiy.android.lib.ui
+package com.lomovskiy.lib.ui
 
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView

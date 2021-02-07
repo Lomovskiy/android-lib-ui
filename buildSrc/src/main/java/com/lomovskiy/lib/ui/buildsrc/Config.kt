@@ -1,10 +1,10 @@
-package com.lomovskiy.android.lib.ui.buildsrc
+package com.lomovskiy.lib.ui.buildsrc
 
 object Config {
 
     val bintrayRepo = "android_libs"
     val bintrayName = "ui"
-    val publishedGroupId = "com.lomovskiy.android.lib"
+    val publishedGroupId = "com.lomovskiy.lib"
     val artifact = "ui"
     val libraryVersion = "1.0"
     val gitUrl = "https://github.com/Lomovskiy/android_lib_ui"

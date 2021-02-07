@@ -1,4 +1,4 @@
-package com.lomovskiy.android.lib.ui
+package com.lomovskiy.lib.ui
 
 open class Event<out T>(private val content: T) {
 

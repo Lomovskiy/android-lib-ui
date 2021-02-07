@@ -1,4 +1,4 @@
-package com.lomovskiy.android.lib.ui
+package com.lomovskiy.lib.ui
 
 const val DECIMAL_FORMAT = "%.2f"
 const val RES_UNDEFINED = -1

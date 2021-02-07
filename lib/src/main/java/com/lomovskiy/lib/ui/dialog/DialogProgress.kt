@@ -1,4 +1,4 @@
-package com.lomovskiy.android.lib.ui.dialog
+package com.lomovskiy.lib.ui.dialog
 
 import android.app.Dialog
 import android.os.Bundle
@@ -10,10 +10,10 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import com.lomovskiy.android.lib.ui.EXTRA_RENDER_MODEL
-import com.lomovskiy.android.lib.ui.R
-import com.lomovskiy.android.lib.ui.RES_UNDEFINED
-import kotlinx.android.parcel.Parcelize
+import com.lomovskiy.lib.ui.EXTRA_RENDER_MODEL
+import com.lomovskiy.lib.ui.R
+import com.lomovskiy.lib.ui.RES_UNDEFINED
+import kotlinx.parcelize.Parcelize
 
 class DialogProgress : DialogFragment() {
 

@@ -1,5 +1,5 @@
 @file:Suppress("NOTHING_TO_INLINE")
-package com.lomovskiy.android.lib.ui
+package com.lomovskiy.lib.ui
 
 import android.content.Context
 import android.text.InputType

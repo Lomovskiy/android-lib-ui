@@ -1,4 +1,4 @@
-import com.lomovskiy.android.lib.ui.buildsrc.Config
+import com.lomovskiy.lib.ui.buildsrc.Config
 
 plugins {
     id("com.android.application")
@@ -8,11 +8,11 @@ plugins {
 android {
 
     defaultConfig {
-        applicationId("com.lomovskiy.android.lib.ui.sample")
-        minSdkVersion(com.lomovskiy.android.lib.ui.buildsrc.Config.Versions.Android.min)
-        targetSdkVersion(com.lomovskiy.android.lib.ui.buildsrc.Config.Versions.Android.target)
-        compileSdkVersion(com.lomovskiy.android.lib.ui.buildsrc.Config.Versions.Android.compile)
-        buildToolsVersion(com.lomovskiy.android.lib.ui.buildsrc.Config.Versions.buildTools)
+        applicationId("com.lomovskiy.lib.ui.sample")
+        minSdkVersion(Config.Versions.Android.min)
+        targetSdkVersion(Config.Versions.Android.target)
+        compileSdkVersion(Config.Versions.Android.compile)
+        buildToolsVersion(Config.Versions.buildTools)
         versionCode(1)
         versionName("1.0")
 
@@ -36,8 +36,9 @@ android {
 
 dependencies {
 
-    implementation(com.lomovskiy.android.lib.ui.buildsrc.Config.Libs.kotlinStd)
-    implementation(com.lomovskiy.android.lib.ui.buildsrc.Config.Libs.mdc)
-    implementation(project(com.lomovskiy.android.lib.ui.buildsrc.Config.Modules.lib))
+    implementation(Config.Libs.kotlinStd)
+    implementation(Config.Libs.mdc)
+    implementation("com.lomovskiy.lib:ui:1.0")
+//    implementation(project(Config.Modules.lib))
 
 }

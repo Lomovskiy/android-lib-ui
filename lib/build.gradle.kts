@@ -1,9 +1,9 @@
-import com.lomovskiy.android.lib.ui.buildsrc.Config
+import com.lomovskiy.lib.ui.buildsrc.Config
 
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-android-extensions")
+    id("kotlin-parcelize")
     id("maven-publish")
 }
 
