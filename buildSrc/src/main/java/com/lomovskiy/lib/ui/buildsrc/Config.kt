@@ -6,7 +6,7 @@ object Config {
     val bintrayName = "ui"
     val publishedGroupId = "com.lomovskiy.lib"
     val artifact = "ui"
-    val libraryVersion = "1.0"
+    val libraryVersion = "1.0.1"
     val gitUrl = "https://github.com/Lomovskiy/android_lib_ui"
     val allLicenses = arrayOf("MIT")
 

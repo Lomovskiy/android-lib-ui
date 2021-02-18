@@ -14,8 +14,8 @@ android {
         targetSdkVersion(Config.Versions.Android.target)
         compileSdkVersion(Config.Versions.Android.compile)
         buildToolsVersion(Config.Versions.buildTools)
-        versionCode(1)
-        versionName("1.0")
+        versionCode(2)
+        versionName("1.0.1")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -58,13 +58,15 @@ artifacts {
     archives(sourcesJar)
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("ui") {
-            groupId = Config.publishedGroupId
-            artifactId = Config.artifact
-            version = Config.libraryVersion
-            artifact(sourcesJar)
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("ui") {
+                groupId = Config.publishedGroupId
+                artifactId = Config.artifact
+                version = Config.libraryVersion
+                artifact(sourcesJar)
+            }
         }
     }
 }
