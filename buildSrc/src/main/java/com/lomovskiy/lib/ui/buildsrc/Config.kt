@@ -2,6 +2,11 @@ package com.lomovskiy.lib.ui.buildsrc
 
 object Config {
 
+    object Publish {
+        const val groupId = "com.lomovskiy.lib"
+        const val artifactId = "ui"
+    }
+
     object GradlePlugins {
 
         const val android: String = "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"

@@ -37,10 +37,6 @@ dependencies {
 
 }
 
-apply {
-    from("maven.gradle")
-}
-
 val sourcesJar by tasks.creating(Jar::class) {
     archiveClassifier.set("sources")
     from(android.sourceSets.getByName("main").java.srcDirs)
@@ -55,8 +51,8 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 from(components["release"])
-                groupId = "com.lomovskiy.lib"
-                artifactId = "ui"
+                groupId = Config.Publish.groupId
+                artifactId = Config.Publish.artifactId
                 version = Config.Versions.name
             }
         }
