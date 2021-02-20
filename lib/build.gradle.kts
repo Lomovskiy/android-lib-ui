@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-parcelize")
+    id("maven-publish")
 }
 
 android {
@@ -34,4 +35,30 @@ dependencies {
     api(Config.Libs.threeTenAbp)
     api(Config.Libs.picasso)
 
+}
+
+apply {
+    from("maven.gradle")
+}
+
+val sourcesJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("sources")
+    from(android.sourceSets.getByName("main").java.srcDirs)
+}
+
+artifacts {
+    archives(sourcesJar)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.lomovskiy.lib"
+                artifactId = "ui"
+                version = Config.Versions.name
+            }
+        }
+    }
 }
