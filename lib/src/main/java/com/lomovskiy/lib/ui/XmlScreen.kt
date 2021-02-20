@@ -14,8 +14,6 @@ abstract class XmlScreen(
 
     abstract fun findViews(parent: View)
 
-    abstract fun setListeners()
-
     private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
 
         override fun handleOnBackPressed() {
@@ -36,5 +34,7 @@ abstract class XmlScreen(
     }
 
     open fun onBackPressed() {}
+
+    open fun setListeners() {}
 
 }

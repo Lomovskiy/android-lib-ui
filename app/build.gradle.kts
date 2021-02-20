@@ -28,6 +28,5 @@ android {
 
 dependencies {
     implementation(Config.Libs.kotlinStd)
-    implementation(Config.Libs.mdc)
-    implementation(project(":lib"))
+    implementation("com.github.lomovskiy:android-lib-ui:1.0.5")
 }
