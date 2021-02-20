@@ -2,14 +2,6 @@ package com.lomovskiy.lib.ui.buildsrc
 
 object Config {
 
-    val bintrayRepo = "android_libs"
-    val bintrayName = "ui"
-    val publishedGroupId = "com.lomovskiy.lib"
-    val artifact = "ui"
-    val libraryVersion = "1.0.1"
-    val gitUrl = "https://github.com/Lomovskiy/android_lib_ui"
-    val allLicenses = arrayOf("MIT")
-
     object GradlePlugins {
 
         const val android: String = "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"
@@ -18,6 +10,9 @@ object Config {
     }
 
     object Versions {
+
+        const val code = 2
+        const val name = "1.0.1"
 
         object Android {
 
