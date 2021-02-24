@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), DialogInputText.EventsTarget {
         }
     }
 
-    override fun dialogInputTextPositiveButtonClicked(text: String) {
+    override fun dialogInputTextPositiveButtonClicked(tag: String?, text: String) {
 
     }
 

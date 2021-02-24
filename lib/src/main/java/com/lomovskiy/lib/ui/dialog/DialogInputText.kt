@@ -16,7 +16,7 @@ import com.lomovskiy.lib.ui.*
 import com.lomovskiy.lib.ui.EXTRA_RENDER_MODEL
 import kotlinx.parcelize.Parcelize
 
-class DialogInputText : DialogFragment(), DialogInterface.OnClickListener {
+class DialogInputText : DialogFragment(), View.OnClickListener {
 
     private val eventsTarget: EventsTarget
         get() = when {
@@ -41,19 +41,23 @@ class DialogInputText : DialogFragment(), DialogInterface.OnClickListener {
         }
         builder.setTitle(renderModel.title)
         builder.setView(view)
+        builder.setCancelable(false)
         builder.setPositiveButton(
                 if (renderModel.positiveButtonLabel == RES_UNDEFINED) { android.R.string.ok } else { renderModel.positiveButtonLabel },
-                this
+                null
         )
         return builder.create().apply {
             window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
         }
     }
 
-    override fun onClick(dialog: DialogInterface, which: Int) {
-        if (which == DialogInterface.BUTTON_POSITIVE) {
-            eventsTarget.dialogInputTextPositiveButtonClicked(field.text())
-        }
+    override fun onResume() {
+        super.onResume()
+        (dialog as AlertDialog).getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(this@DialogInputText)
+    }
+
+    override fun onClick(v: View) {
+        eventsTarget.dialogInputTextPositiveButtonClicked(tag ?: TAG, field.text())
     }
 
     private fun setupView(parent: View) {
@@ -100,7 +104,7 @@ class DialogInputText : DialogFragment(), DialogInterface.OnClickListener {
     }
 
     interface EventsTarget {
-        fun dialogInputTextPositiveButtonClicked(text: String)
+        fun dialogInputTextPositiveButtonClicked(tag: String?, text: String)
     }
 
     @Parcelize
@@ -112,7 +116,8 @@ class DialogInputText : DialogFragment(), DialogInterface.OnClickListener {
         val maxLength: Int = RES_UNDEFINED,
         val maxLines: Int = RES_UNDEFINED,
         val inputType: Int = RES_UNDEFINED,
-        @StyleRes val style: Int = RES_UNDEFINED
+        @StyleRes val style: Int = RES_UNDEFINED,
+        val tag: String? = null,
     ) : Parcelable
 
 }
