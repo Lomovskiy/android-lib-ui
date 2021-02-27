@@ -34,6 +34,8 @@ object Config {
         const val mdc: String = "1.3.0"
         const val threeTenAbp: String = "1.3.0"
         const val picasso: String = "2.71828"
+        const val activity = "1.2.0"
+        const val fragment = "1.3.0"
 
     }
 
@@ -50,6 +52,8 @@ object Config {
         const val mdc: String = "com.google.android.material:material:${Versions.mdc}"
         const val threeTenAbp: String = "com.jakewharton.threetenabp:threetenabp:${Versions.threeTenAbp}"
         const val picasso: String = "com.squareup.picasso:picasso:${Versions.picasso}"
+        const val activity = "androidx.activity:activity-ktx:${Versions.activity}"
+        const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
 
     }
 

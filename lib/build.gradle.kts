@@ -34,6 +34,8 @@ dependencies {
     api(Config.Libs.mdc)
     api(Config.Libs.threeTenAbp)
     api(Config.Libs.picasso)
+    api(Config.Libs.activity)
+    api(Config.Libs.fragment)
 
 }
 
