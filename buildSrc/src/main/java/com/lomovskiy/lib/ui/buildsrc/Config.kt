@@ -16,8 +16,8 @@ object Config {
 
     object Versions {
 
-        const val code = 8
-        const val name = "1.0.7"
+        const val code = 9
+        const val name = "1.0.8"
 
         object Android {
 
