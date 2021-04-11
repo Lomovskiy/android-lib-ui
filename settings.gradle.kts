@@ -1,3 +1,3 @@
 include(":lib")
 include(":app")
-rootProject.name = "ui"
+rootProject.name = "android-lib-ui"
