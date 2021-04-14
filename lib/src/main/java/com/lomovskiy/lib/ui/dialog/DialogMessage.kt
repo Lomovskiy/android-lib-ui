@@ -4,12 +4,9 @@ import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Parcelable
-import androidx.annotation.StringRes
-import androidx.annotation.StyleRes
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.lomovskiy.lib.ui.EXTRA_RENDER_MODEL
-import com.lomovskiy.lib.ui.RES_UNDEFINED
 import kotlinx.parcelize.Parcelize
 
 class DialogMessage : DialogFragment(), DialogInterface.OnClickListener {
@@ -38,18 +35,19 @@ class DialogMessage : DialogFragment(), DialogInterface.OnClickListener {
         }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder = if (renderModel.style == RES_UNDEFINED) {
-            AlertDialog.Builder(requireContext())
+        val builder: AlertDialog.Builder
+        if (renderModel.style != null) {
+            builder = AlertDialog.Builder(requireContext())
         } else {
-            AlertDialog.Builder(requireContext(), renderModel.style)
+            builder = AlertDialog.Builder(requireContext(), renderModel.style!!)
         }
         builder.setTitle(renderModel.title)
         builder.setMessage(renderModel.message)
         builder.setPositiveButton(renderModel.positiveButtonText, this)
-        if (renderModel.neutralButtonText != RES_UNDEFINED) {
+        if (renderModel.neutralButtonText != null) {
             builder.setNeutralButton(renderModel.neutralButtonText, this)
         }
-        if (renderModel.negativeButtonText != RES_UNDEFINED) {
+        if (renderModel.negativeButtonText != null) {
             builder.setNegativeButton(renderModel.negativeButtonText, this)
         }
         return builder.create()
@@ -58,32 +56,32 @@ class DialogMessage : DialogFragment(), DialogInterface.OnClickListener {
     override fun onClick(dialog: DialogInterface, which: Int) {
         when (which) {
             DialogInterface.BUTTON_POSITIVE -> {
-                eventsTarget.dialogSimpleMessagePositiveButtonClicked(renderModel.tag)
+                eventsTarget.dialogMessagePositiveButtonClicked(renderModel.tag)
             }
             DialogInterface.BUTTON_NEGATIVE -> {
-                eventsTarget.dialogSimpleMessageNegativeButtonClicked(renderModel.tag)
+                eventsTarget.dialogMessageNegativeButtonClicked(renderModel.tag)
             }
             DialogInterface.BUTTON_NEUTRAL -> {
-                eventsTarget.dialogSimpleMessageNeutralButtonClicked(renderModel.tag)
+                eventsTarget.dialogMessageNeutralButtonClicked(renderModel.tag)
             }
         }
     }
 
     interface EventsTarget {
-        fun dialogSimpleMessagePositiveButtonClicked(tag: String)
-        fun dialogSimpleMessageNegativeButtonClicked(tag: String)
-        fun dialogSimpleMessageNeutralButtonClicked(tag: String)
+        fun dialogMessagePositiveButtonClicked(tag: String)
+        fun dialogMessageNegativeButtonClicked(tag: String)
+        fun dialogMessageNeutralButtonClicked(tag: String)
     }
 
     @Parcelize
     class RenderModel @JvmOverloads constructor(
         val tag: String,
-        @StringRes val title: Int,
-        @StringRes val message: Int,
-        @StringRes val positiveButtonText: Int,
-        @StringRes val negativeButtonText: Int = RES_UNDEFINED,
-        @StringRes val neutralButtonText: Int = RES_UNDEFINED,
-        @StyleRes val style: Int = RES_UNDEFINED
+        val title: String,
+        val message: String,
+        val positiveButtonText: String,
+        val negativeButtonText: String? = null,
+        val neutralButtonText: String? = null,
+        val style: Int? = null
     ) : Parcelable
 
 }
