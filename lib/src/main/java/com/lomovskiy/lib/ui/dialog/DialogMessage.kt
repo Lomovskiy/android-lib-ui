@@ -36,7 +36,7 @@ class DialogMessage : DialogFragment(), DialogInterface.OnClickListener {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder: AlertDialog.Builder
-        if (renderModel.style != null) {
+        if (renderModel.style == null) {
             builder = AlertDialog.Builder(requireContext())
         } else {
             builder = AlertDialog.Builder(requireContext(), renderModel.style!!)
